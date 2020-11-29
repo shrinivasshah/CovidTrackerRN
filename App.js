@@ -7,12 +7,13 @@ import CovidDetails from "./src/screens/CovidDetailsScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
-
+import { setNavigator } from "./src/navigationRef";
+import { navigationRef } from "./src/navigationRef";
 const Stack = createStackNavigator();
 function App() {
   const [isLoggedIn, setIsLoggedin] = useState(false);
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator initialRouteName="LoginScreen">
         {isLoggedIn ? (
           <>
