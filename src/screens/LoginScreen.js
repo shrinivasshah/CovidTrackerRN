@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Input, Text } from "react-native-elements";
+import { Input, Text, Button } from "react-native-elements";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { Context as AuthContext } from "../context/AuthContext";
+
 function LoginScreen({ navigation }) {
+  const { signin } = useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text h1 style={{ paddingBottom: 40 }}>
@@ -23,6 +26,7 @@ function LoginScreen({ navigation }) {
         secureTextEntry
         // onEndEditing
       />
+      <Button title="Sign In" onPress={() => signin({ username, password })} />
       <TouchableOpacity
         style={{ padding: 15, alignSelf: "flex-start" }}
         onPress={() => navigation.navigate("SignupScreen")}

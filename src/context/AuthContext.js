@@ -9,6 +9,8 @@ const authReducer = (state, action) => {
       return { ...state, errorMessage: action.payload };
     case "signin":
       return { ...state, token: action.payload };
+    case "signout":
+      return { ...state, token: null };
     default:
       return state;
   }
@@ -34,7 +36,10 @@ const signup = (dispatch) => async (
   }
 };
 
-const signout = (dispatch) => () => {};
+const signout = (dispatch) => async () => {
+  const response = await authApi.post("/auth/token/logout");
+  dispatch({ type: "signout" });
+};
 const signin = (dispatch) => async ({ username, password }) => {
   try {
     const response = await authApi.post("/auth/token/login", {
@@ -54,5 +59,5 @@ const signin = (dispatch) => async ({ username, password }) => {
 export const { Provider, Context } = createDataContext(
   authReducer,
   { signin, signout, signup },
-  { token: "null", errorMessage: "" }
+  { token: null, errorMessage: "" }
 );

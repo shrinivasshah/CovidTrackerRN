@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { Feather } from "@expo/vector-icons";
 import LinearGradientTheme from "./src/components/LinearGradientTheme";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -7,15 +8,17 @@ import CovidDetails from "./src/screens/CovidDetailsScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
-import { setNavigator } from "./src/navigationRef";
 import { navigationRef } from "./src/navigationRef";
+import { Context as AuthContext } from "./src/context/AuthContext";
+import { TouchableOpacity } from "react-native";
 const Stack = createStackNavigator();
+
 function App() {
-  const [isLoggedIn, setIsLoggedin] = useState(false);
+  const { state, signout } = useContext(AuthContext);
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator initialRouteName="LoginScreen">
-        {isLoggedIn ? (
+        {state.token ? (
           <>
             <Stack.Screen
               name="HomeScreen"
@@ -24,6 +27,11 @@ function App() {
                 title: "Covid Tracker",
                 headerBackground: () => (
                   <LinearGradientTheme colorArray={["#a13388", "#10356c"]} />
+                ),
+                headerRight: () => (
+                  <TouchableOpacity onPress={signout}>
+                    <Feather name="log-out" size={24} color="#444" />
+                  </TouchableOpacity>
                 ),
                 headerTintColor: "#FFF",
                 headerTitleStyle: {
