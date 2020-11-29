@@ -21,7 +21,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./covid19.png",
+        "foregroundImage": "./assets/covid19.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.shrishah05.covid"
