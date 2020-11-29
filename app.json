@@ -4,9 +4,9 @@
     "slug": "covid",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/covid19.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/covidsplashscreen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

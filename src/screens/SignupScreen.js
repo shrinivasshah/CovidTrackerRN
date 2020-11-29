@@ -8,7 +8,7 @@ import { Button } from "react-native-elements";
 
 function SignupScreen({ navigation }) {
   const { state, signup } = useContext(AuthContext);
-  console.log(state);
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

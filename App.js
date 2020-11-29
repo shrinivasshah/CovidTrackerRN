@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Tooltip, Text } from "react-native-elements";
 import { Feather } from "@expo/vector-icons";
 import LinearGradientTheme from "./src/components/LinearGradientTheme";
 import { NavigationContainer } from "@react-navigation/native";
@@ -30,13 +31,19 @@ function App() {
                 ),
                 headerRight: () => (
                   <TouchableOpacity onPress={signout}>
-                    <Feather name="log-out" size={24} color="#444" />
+                    <Tooltip popover={<Text>Log Out</Text>}>
+                      <Feather
+                        name="log-out"
+                        size={24}
+                        color="#fff"
+                        style={{ paddingRight: 10 }}
+                      />
+                    </Tooltip>
                   </TouchableOpacity>
                 ),
                 headerTintColor: "#FFF",
                 headerTitleStyle: {
                   fontWeight: "bold",
-                  textAlign: "center",
                 },
               }}
             />
