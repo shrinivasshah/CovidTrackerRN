@@ -5,7 +5,7 @@ import { Input, Text } from "react-native-elements";
 import { Context as AuthContext } from "../context/AuthContext";
 import { View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { Button } from "react-native-elements";
-
+import ImgPicker from "../components/CameraComponent";
 function SignupScreen({ navigation }) {
   const { state, signup } = useContext(AuthContext);
 
@@ -22,6 +22,10 @@ function SignupScreen({ navigation }) {
           </Text>{" "}
           Tracker
         </Text>
+
+        <View>
+          <ImgPicker />
+        </View>
         <Text style={styles.lableStyle}>Username</Text>
         <Input
           style={styles.inputStyle}
@@ -52,6 +56,7 @@ function SignupScreen({ navigation }) {
             {state.errorMessage}
           </Text>
         ) : null}
+
         <Button
           title="Sign Up"
           onPress={() => signup({ username, email, password })}

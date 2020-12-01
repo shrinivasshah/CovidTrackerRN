@@ -16,10 +16,11 @@ const Stack = createStackNavigator();
 
 function App() {
   const { state, signout } = useContext(AuthContext);
+  const fakeState = false;
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator initialRouteName="LoginScreen">
-        {state.token ? (
+      <Stack.Navigator initialRouteName="CameraScreen">
+        {fakeState ? (
           <>
             <Stack.Screen
               name="HomeScreen"
@@ -31,14 +32,12 @@ function App() {
                 ),
                 headerRight: () => (
                   <TouchableOpacity onPress={signout}>
-                    <Tooltip popover={<Text>Log Out</Text>}>
-                      <Feather
-                        name="log-out"
-                        size={24}
-                        color="#fff"
-                        style={{ paddingRight: 10 }}
-                      />
-                    </Tooltip>
+                    <Feather
+                      name="log-out"
+                      size={24}
+                      color="#fff"
+                      style={{ paddingRight: 10 }}
+                    />
                   </TouchableOpacity>
                 ),
                 headerTintColor: "#FFF",
