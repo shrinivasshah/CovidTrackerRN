@@ -44,7 +44,7 @@ function PieChartComp() {
     <>
       <PieChart
         data={data}
-        width={Dimensions.get("window").width}
+        width={Dimensions.get("window").width - 10} // from react-native
         height={220}
         chartConfig={{
           backgroundColor: "#e26a00",
@@ -55,6 +55,11 @@ function PieChartComp() {
           style: {
             borderRadius: 16,
           },
+        }}
+        bezier
+        style={{
+          marginVertical: 8,
+          borderRadius: 16,
         }}
         accessor="population"
         backgroundColor="transparent"
