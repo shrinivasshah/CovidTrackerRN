@@ -10,16 +10,13 @@ const authReducer = (state, action) => {
     case "signin":
       return { ...state, token: action.payload };
     case "signout":
-      return { ...state, token: null };
+      return { token: null, errorMessage: "" };
     default:
       return state;
   }
 };
 
-const signup = (dispatch) => async (
-  { username, email, password },
-  callback
-) => {
+const signup = (dispatch) => async ({ username, email, password }) => {
   try {
     const response = await authApi.post("/auth/users/", {
       username,
@@ -37,8 +34,10 @@ const signup = (dispatch) => async (
 };
 
 const signout = (dispatch) => async () => {
-  const response = await authApi.post("/auth/token/logout");
+  // const response = await authApi.post("/auth/token/logout");
+  await AsyncStorage.removeItem("token");
   dispatch({ type: "signout" });
+  RootNavigation.navigate("LoginScreen");
 };
 const signin = (dispatch) => async ({ username, password }) => {
   try {

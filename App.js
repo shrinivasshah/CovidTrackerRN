@@ -10,7 +10,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import SignupScreen from "./src/screens/SignupScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
-import { navigate, navigationRef } from "./src/navigationRef";
+import { navigationRef } from "./src/navigationRef";
 import { Context as AuthContext } from "./src/context/AuthContext";
 import { TouchableOpacity } from "react-native";
 import ChartScreen from "./src/screens/ChartScreen";
@@ -52,11 +52,13 @@ const MainScreen = () => {
 
 function App() {
   const { state, signout } = useContext(AuthContext);
-  const fakeToken = true;
+  // console.log(signout);
+  // const fakeToken = true;
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator initialRouteName="CameraScreen">
-        {fakeToken ? (
+        {/* */}
+        {state.token ? (
           <>
             <Stack.Screen
               options={{
@@ -65,12 +67,7 @@ function App() {
                   <LinearGradientTheme colorArray={["#a13388", "#10356c"]} />
                 ),
                 headerRight: () => (
-                  <TouchableOpacity
-                    onPress={() => {
-                      signout;
-                      navigate("LoginScreen");
-                    }}
-                  >
+                  <TouchableOpacity onPress={signout}>
                     <Feather
                       name="log-out"
                       size={24}
@@ -112,6 +109,7 @@ function App() {
               }}
             /> */}
             <Stack.Screen
+              name="DetailScreen"
               options={{
                 title: "State Details",
                 headerBackground: () => (
@@ -119,7 +117,6 @@ function App() {
                 ),
                 headerTintColor: "#FFF",
               }}
-              name="DetailScreen"
               component={CovidDetails}
             />
           </>

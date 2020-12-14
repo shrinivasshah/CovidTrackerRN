@@ -1,8 +1,10 @@
 import React from "react";
 import { Dimensions } from "react-native";
 import { PieChart } from "expo-chart-kit";
+import * as RootNavigation from "../navigationRef";
 
-function PieChartComp() {
+function PieChartComp({ propdata }) {
+  // console.log(RootNavigation);
   const data = [
     {
       name: "Maharashtra",
@@ -43,7 +45,8 @@ function PieChartComp() {
   return (
     <>
       <PieChart
-        data={data}
+        navigation={RootNavigation}
+        data={propdata ? propdata : data}
         width={Dimensions.get("window").width - 10} // from react-native
         height={220}
         chartConfig={{

@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 function CaseItem({ item }) {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("DetailScreen", item)}>
+    <TouchableOpacity onPress={() => navigation.push("DetailScreen", item)}>
       <ListItem bottomDivider>
         <ListItem.Content style={{ paddingLeft: 5 }}>
           <ListItem.Title style={{ color: "#10356c", fontSize: 18 }}>

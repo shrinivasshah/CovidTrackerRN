@@ -24,9 +24,9 @@ function BarChartComp() {
         width={Dimensions.get("window").width - 10} // from react-native
         height={220}
         chartConfig={{
-          backgroundColor: "#e26a00",
-          backgroundGradientFrom: "#fb8c00",
-          backgroundGradientTo: "#ffa726",
+          backgroundColor: "#000",
+          backgroundGradientFrom: "#5587",
+          backgroundGradientTo: "#eee",
           decimalPlaces: 2, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {
