@@ -2,7 +2,7 @@ import React from "react";
 
 import { LinearGradient } from "expo-linear-gradient";
 
-export default LinearGradientTheme = ({ colorArray }) => {
+function LinearGradientTheme({ colorArray }){
   return (
     <LinearGradient
       colors={colorArray || ["#a13388", "#10356c"]}
@@ -12,3 +12,5 @@ export default LinearGradientTheme = ({ colorArray }) => {
     />
   );
 };
+
+export default LinearGradientTheme;
