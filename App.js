@@ -84,30 +84,6 @@ function App() {
               name="Main"
               component={MainScreen}
             />
-            {/* <Stack.Screen
-              name="HomeScreen"
-              component={HomeScreen}
-              options={{
-                title: "Covid Tracker",
-                headerBackground: () => (
-                  <LinearGradientTheme colorArray={["#a13388", "#10356c"]} />
-                ),
-                headerRight: () => (
-                  <TouchableOpacity onPress={signout}>
-                    <Feather
-                      name="log-out"
-                      size={24}
-                      color="#fff"
-                      style={{ paddingRight: 10 }}
-                    />
-                  </TouchableOpacity>
-                ),
-                headerTintColor: "#FFF",
-                headerTitleStyle: {
-                  fontWeight: "bold",
-                },
-              }}
-            /> */}
             <Stack.Screen
               name="DetailScreen"
               options={{
